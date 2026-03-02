@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ORCID Callback</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 2rem; }
+    pre { background: #f4f4f4; padding: 1rem; border-radius: 12px; overflow-x: auto; }
+  </style>
+</head>
+<body>
+  <h1>ORCID Authorization Received</h1>
+  <p>Copy the authorization code below into your token-exchange step.</p>
+
+  <h3>Authorization code</h3>
+  <pre id="code">(missing)</pre>
+
+  <h3>Full URL</h3>
+  <pre id="full">(missing)</pre>
+
+  <script>
+    document.getElementById("full").textContent = window.location.href;
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById("code").textContent = params.get("code") || "(missing)";
+  </script>
+</body>
+</html>
